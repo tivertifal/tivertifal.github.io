@@ -8,8 +8,147 @@
 </head>
 
 <body style="background-color: #404040"> 
-  <p style="font-face: sans-serif; color: #d0d0d0">Tivertifal on GitHub</p>
-  <p style="font-face: sans-serif; color: #aaaaaa">Now in glorious 3D!</p>
+  <svg width="200" height="200" viewBox="-100 -100 200 200">
+    <circle cx="0" cy="20" r="60" fill="#CA0000" />
+    <rect x="-20" y="-55" width="40" height="20" fill="#FFA000" />
+    <circle cx="0" cy="-70" r="20" fill=none stroke="#FFA000" stroke-width="2" />
+    <g transform="translate(0 20)">
+    <path id="star"
+        d="
+        M -42, -30
+        L -35, -7
+        L -28, -30
+        L -45, -15
+        L -25, -15
+        L -42, -30
+        "
+        fill="#A00000"
+    />
+    <use href="#star" transform="rotate(60)" />
+    <use href="#star" transform="rotate(120)" />
+    <use href="#star" transform="rotate(180)" />
+    <use href="#star" transform="rotate(240)" />
+    <use href="#star" transform="rotate(300)" />
+    </g>
+    <polygon points="-20,40 0,0 20,40" fill="#007000" />
+    <polygon points="-17,25 0,-10 17,25" fill="#007000" />
+    <polygon points="-12,10 0,-20 12,10" fill="#007000" />
+    <rect x="-3" y="40" width="6" height="14" fill="#FFA000" />
+  </svg>
+
+  <svg width="200" height="200" viewBox="-100 -100 200 200">
+  <rect x="-100" y="-100" width="200" height="200" fill="black" />
+  <g transform="translate(0 5)">
+    <g>
+        <polygon points="0,0 36,-50 0,-100" fill="#edd8b7" />
+        <polygon points="0,0 -36,-50 0,-100" fill="#e5c39c" />
+    </g>
+    <g transform="rotate(72)">
+        <polygon points="0,0 36,-50 0,-100" fill="#edd8b7" />
+        <polygon points="0,0 -36,-50 0,-100" fill="#e5c39c" />
+    </g>
+    <g transform="rotate(-72)">
+        <polygon points="0,0 36,-50 0,-100" fill="#edd8b7" />
+        <polygon points="0,0 -36,-50 0,-100" fill="#e5c39c" />
+    </g>
+    <g transform="rotate(144)">
+        <polygon points="0,0 36,-50 0,-100" fill="#edd8b7" />
+        <polygon points="0,0 -36,-50 0,-100" fill="#e5c39c" />
+    </g>
+    <g transform="rotate(-144)">
+        <polygon points="0,0 36,-50 0,-100" fill="#edd8b7" />
+        <polygon points="0,0 -36,-50 0,-100" fill="#e5c39c" />
+    </g>
+  </g>
+  </svg>
+
+  <svg width="200" height="200" viewBox="-100 -100 200 200">
+    <rect x="-100" y="-100" width="200" height="200" fill="#cd803d" />
+    <circle r="55" stroke="#fcce7b" stroke-width="10" fill="white" />
+
+    <circle
+        r="45"
+        stroke="#b6705f"
+        stroke-width="6"
+        stroke-dasharray="6 17.56194490192345"
+        stroke-dashoffset="3"
+        fill="none"
+    />
+
+    <g stroke="#5f4c6c" stroke-linecap="round">
+        <line id="hours" y2="-20" stroke-width="8" />
+        <line id="minutes" y2="-35" stroke-width="6" />
+    </g>
+
+  </svg>
+
+  <script>
+    const hoursElement = document.getElementById("hours");
+    const minutesElement = document.getElementById("minutes");
+
+    const hour = new Date().getHours() % 12;
+    const minute = new Date().getMinutes();
+
+    hoursElement.setAttribute("transform", `rotate(${(360 / 12) * hour})`);
+    minutesElement.setAttribute("transform", `rotate(${(360 / 60) * minute})`);
+  </script>
+
+  <svg width="200" height="200" viewBox="-100 -100 200 200">
+    <defs>
+    <g id="tree">
+      <polygon points="-10,0 10,0 0 -50" fill="#38755b" />
+      <line x1="0" y1="0" x2="0" y2="10" stroke="#778074" stroke-width="2" />
+    </g>
+    </defs>
+
+    <rect x="-100" y="-100" width="200" height="200" fill="#f1dbc3" />
+    <circle cx="0" cy="380" r="350" fill="#f8f4e8" />
+
+    <use href="#tree" x="-30" y="25" transform="scale(2)" />
+    <use href="#tree" x="-20" y="40" transform="scale(1.2)" />
+    <use href="#tree" x="40" y="40" />
+    <use href="#tree" x="50" y="30" transform="scale(1.5)" />
+  </svg>
+
+  <svg width="200" height="400" viewBox="-100 -200 200 400">
+  <g transform="translate(0 -50)">
+    <g id="windmill-head">
+      <path id="arm" d="M -7 -20 C -7 -10 7 -10 7 -20 L 2 -80 L -2 -80" />
+      <use href="#arm" transform="rotate(120)" />
+      <use href="#arm" transform="rotate(240)" />
+      <circle r="8" />
+    </g>
+  </g>
+  <path d="M -7 100 L 7 100 L 3 -35 L -3 -35" />
+  </svg>
+
+  <style>
+    #windmill-head {
+      animation-name: rotate;
+      animation-duration: 4s;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+    }
+
+    @keyframes rotate {
+      from {
+        transform: rotate(0deg);
+      } to {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+
+  <svg width="200" height="200">
+    <path d="M 30 100 Q 100 170 170 100" stroke="#fa3838" stroke-width="20" fill=none />
+  </svg>
+
+  <svg width="200" height="200" viewBox="-100 -100 200 200">
+    <circle cx="0" cy="0" r="90" fill=none stroke="black" stroke-width="10" />
+    <ellipse cx="-25" cy="-25" rx="10" ry="15" />
+    <ellipse cx="25" cy="-25" rx="10" ry="15" />
+    <path d="M -40 30 Q 0 60 40 30" fill=none stroke="black" stroke-width="10" stroke-linecap="round" />
+  </svg>
 </body>
 
 </html>
