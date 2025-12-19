@@ -20,7 +20,7 @@
         <p>Der er flere måder at installere programmer på. Den mest robuste (og i de fleste tilfælde foretrukne) metode er at bruge "official repositories", altså i Manjaros tilfælde de programmer, der ligger på Manjaros officielle servere og mirrors. I nogle tilfælde er man dog nødt til, eller bedre stillet ved, at bruge alternative metoder.</p>
 
         <h3>Officielle pakker</h3>
-        <p>Pacman er Arch Linux's <i>package manager</i>. Det er det program, der holder styr på operativsystemet og det meste af den software, der er installeret. Programmer og libraries (programudvidelser) kaldes i styresystemssammenhænge for <i>pakker</i>. Package manageren holder styr på, hvilke ting der er afhængige af hvilke andre ting, klarer versionsstyring på tværs af de enkelte pakker, opdaterer systemkonfiguration på baggrund af, hvad der er og bliver installeret, og så videre. Pacman står for at koordinere installation og vedligeholdelse af software og holde styr på konfigurationen af software i forhold til det underliggende system.</p>
+        <p>Pacman er Arch Linux's <i>package manager</i>. Det er det program, der holder styr på operativsystemet og det meste af den software, der er installeret. Programmer og libraries (programudvidelser) kaldes i styresystemssammenhænge for <i>pakker</i>. Package manageren holder styr på, hvilke ting der er afhængige af hvilke andre ting, klarer versionsstyring på tværs af de enkelte pakker, opdaterer systemkonfiguration, på baggrund af hvad der er og bliver installeret, og så videre. Pacman står for at koordinere installation og vedligeholdelse af software og holde styr på konfigurationen af software i forhold til det underliggende system.</p>
 
         <p>Systemopdateringer kan automatiseres og sættes i skema, så du fx får nye opdateringer hver uge eller hver måned. Manjaros package manager hedder Pamac og er en grafisk frontend for Pacman. Pamac understøtter dog også andre kilder til software end de officielle repoer, så du kan holde styr på det hele ét sted.</p>
 
@@ -32,7 +32,7 @@
         <p>Flatpak er integreret i Pamac og kan installeres derfra. Man kan dog også gøre det via kommandolinjen, hvor man som altid også har flere muligheder, men det er ikke påkrævet til de mest basale handlinger. Flatpaks bor på <a href="https://flathub.org">Flathub</a>, hvor man kan kigge rundt og læse om de forskellige programmer. De kalder sig selv en "App Store" til Linux, og det er en god analogi.</p>
 
         <h3>AppImage</h3>
-        <p>Lissom Flatpak er AppImage en selvstændig fil, der kan køre uafhængigt af det specifikke styresystem. Det er på mange måder en endnu lettere metode end Flatpak, da AppImages bare er enkelt filer, som man dobbeltklikker på for at køre, og bare sletter for at fjerne. Det er ikke så mange ting, der distribueres via AppImage.</p>
+        <p>Lissom Flatpak er AppImage en selvstændig fil, der kan køre uafhængigt af det specifikke styresystem. Det er på mange måder en endnu lettere metode end Flatpak, da AppImages bare er enkelt filer, som man dobbeltklikker på for at køre og bare sletter for at fjerne. Det er ikke så mange ting, der distribueres via AppImage.</p>
 
         <h3>Eksekverbare filer uden videre</h3>
         <p>Hvis ellers man har de systembiblioteker og programmer, et linuxprogram er afhængigt af, kan man også bare køre den binære programfil uden videre. Til grundlæggende software uden for mange specielle krav til systemsoftware er det en let og ligetil metode. Bemærk i øvrigt, at filendelser ikke bruges til normale programfiler. Du kan dog også støde på programmer, som er indlejret i <i>shell scripts</i>, og de vil som regel have filendelsen <code>.sh</code>. For at køre shell scripts er der nogle særlige tilladelser og måder at skrive kommandoer på, man skal kende, men det er ikke så vigtigt lige nu og her.</p>
@@ -47,7 +47,7 @@
     <section>
 
         <h2>Spil</h2>
-        <p>Der er flere måder at køre windowsspil under Linux. Steam er selvfølgelig den største og letteste måde, og til andre launchers og separate spil er der programmer som Lutris, Heroic Games Launcher (og Bottles, som beskrevet herover). De tre sidstnævnte er mere eller mindre funktionsrige frontends for Wine og andre emulatorer. Jeg bruger Steam og Lutris, men Heroic Games Launcher er også ret populær.</p>
+        <p>Der er flere måder at køre windowsspil under Linux. Steam er selvfølgelig den største og letteste måde, og til andre launchers og separate spil er der programmer som Lutris, Heroic Games Launcher (og Bottles, som er en ligefrem grafisk frontend for Wine). De tre sidstnævnte er mere eller mindre funktionsrige frontends for Wine og emulatorer. Jeg bruger Steam og Lutris, men Heroic Games Launcher er også ret populær til spil, og Bottle er en god general purpose frontend for Wine.</p>
 
         <h3>Proton</h3>
         <p>Proton er Valves videreudvikling af Wine, som er specielt udviklet til spil og til at køre steamspil. Det er Proton, der er skyld i, at man som computerspilsfan kan bruge Linux. Når man installerer Steam på Linux, er den nyeste stabile udgave af Proton med, og man har endda mulighed for at køre den allernyeste udgave ved at skifte til Proton Experimental i opsætningen; det kan få nogle spil til at virke, som ikke virker med den stabile udgave. Proton bruger Vulkan til grafikhåndtering i stedet for DirectX og fungerer dermed som bro mellem de to.</p>
@@ -76,7 +76,7 @@
         <h3>kernel</h3>
         <p>Kernen i Linux hedder <i>the Linux kernel</i>, linuxkernen. Tænk på den som linket mellem den software, du har installeret, og hardwaren på computeren. Den holder styr på processer, hukommelse, CPU, filer, netværk og så videre. Det er stadig Linus Torvalds, der står i spidsen for udviklingen af kernen, men der er tusindvis af mennesker involveret. Linuxkernen er modulær, så selvom det er en enorm ting alt i alt, bruges kun de ting, der er relevante for din computer.</p>
 
-        <p>Der er en række centrale konfigurationsfiler, der altid er sammensat til din helt præcise systemkonfiguration. Derfor vil du også opleve, at nogle af disse kofigurationsfiler vil blive genskabt fra bunden, når du kører en systemopdatering. Det er med til at sikre, at systemet er helt tight og optimeret.</p>
+        <p>Der er en række centrale konfigurationsfiler, der altid er sammensat til din helt præcise systemkonfiguration. Derfor vil du også opleve, at nogle af disse konfigurationsfiler vil blive genskabt fra bunden, når du kører en systemopdatering. Det er med til at sikre, at systemet er helt tight og optimeret.</p>
 
         <h3>dependency</h3>
         <p>Når du installerer software, kan det enkelte program afhænge af et andet program eller en programudvidelse (et library). Hvis program A kun virker, hvis program B er installeret, så siger man, at program B er en <i>dependency</i> for program A. I dagligdagen vil du støde på det, når du installerer og afinstallerer software. Du vælger at installere ét program, men Pacman/Pamac spørger, om du vil installere 20 programmer. Det er, fordi de 19 af programmerne er dependencies for det program, du prøver at installere. Det er helt normalt. Når du afinstallerer software, kan du vælge at fjerne dependencies også; Pacman/Pamac vil sørge for kun at fjerne de dependencies, der ikke er brugt af andet software, så det er i udgangspunktet en sikker handling.</p>
@@ -106,7 +106,7 @@
     <section>
         <h2>Nyttige kommandoer og fif</h2>
 
-        <p>For at køre spil med "gamemode" og maks. 60 frames i sekundet, plus et par ekstra optimeringer, tilføjes følgende til launch options i Steam for det enkelte spil:</p>
+        <p><i>Gamemode</i> er et program, der optimerer systemet til spil midlertidigt, mens spillet rent faktisk kører. Det installerer vi også. For at køre spil med "gamemode" og maks. 60 frames i sekundet, plus et par ekstra optimeringer, tilføjes følgende til launch options i Steam for det enkelte spil:</p>
         <pre><code>gamemoderun DXVK_FRAME_RATE=60 DXVK_ASYNC=1 __GL_SHADER_DISK_CACHE=1 __GL_SHADER_DISK_CACHE_SKIP_CLEANUP=1 STAGING_SHARED_MEMORY=1 %command%</code></pre>
 
         <img src="launchoptions.png" alt="Launch options i Steam"/>
@@ -126,7 +126,7 @@
         <h2>Support</h2>
         <p>Hvis du har brug for hjælp og vil prøve på egen hånd, er der rigtigt mange ressourcer på nettet skrevet og vedligeholdt af brugere med masser af info og guides. Her er et par af dem:</p>
 
-        <h3>Google</h3>
+        <h3>Almene søgemaskiner</h3>
         <p>Det er som regel et godt første skridt at google sit problem, så der kommer links til forskellige forummer og wikier med de mest relevante resultater øverst. Du kan tilføje "manjaro" eller "arch" til søgningen for at få løsninger, der kan anvendes direkte i dit eget system. Vær dog opmærksom på, at der pga. den minimale opsætning af systemet og det brede udvalg af software kan være løsninger, der involverer programmer, du ikke har installeret. I sådan nogle tilfælde kan du overveje, om du vil installere de programmer eller kigge efter en anden løsning.</p>
 
         <h3><a href="https://wiki.manjaro.org">Manjaro Wiki</a></h3>
