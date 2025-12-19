@@ -1,0 +1,83 @@
+/* --- Catppuccin Mocha Color Palette --- */
+:root {
+    --base: #1e1e2e;
+    --mantle: #181825;
+    --crust: #11111b;
+    --text: #cdd6f4;
+    --subtext: #b5bfe2;
+    --surface0: #313244;
+    --surface1: #45475a;
+    --surface2: #585b70;
+    --overlay0: #6c7086;
+    --overlay1: #7f849c;
+    --blue: #89b4fa;
+    --green: #a6e3a1;
+    --yellow: #f9e2af;
+    --peach: #fab387;
+    --pink: #f5c2e7;
+    --red: #f38ba8;
+    --maroon: #eba0ac;
+    --purple: #cba6f7;
+    --teal: #94e2d5;
+    --sky: #89dceb;
+}
+
+/* --- Global Styles --- */
+body {
+    background-color: var(--base);
+    color: var(--text);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 2rem;
+}
+
+/* --- Headings --- */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--blue);
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* --- Links --- */
+a {
+    color: var(--sky);
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+/* --- Code/Screenshots --- */
+pre, code {
+    background-color: var(--surface0);
+    color: var(--text);
+    padding: 0.5rem;
+    border-radius: 6px;
+    font-family: "Fira Code", monospace;
+    overflow-x: auto;
+}
+
+/* --- Images (screenshots) --- */
+img {
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    margin: 1rem 0;
+}
+
+/* --- Sections --- */
+section {
+    margin-bottom: 2rem;
+    background-color: var(--mantle);
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+/* --- Optional: Blockquotes --- */
+blockquote {
+    border-left: 4px solid var(--peach);
+    padding-left: 1rem;
+    color: var(--subtext);
+    font-style: italic;
+}
