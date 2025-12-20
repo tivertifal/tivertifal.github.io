@@ -91,3 +91,8 @@ blockquote {
     color: var(--subtext);
     font-style: italic;
 }
+
+.prompt {
+    color: var(--teal);
+    font-weight: bold;
+}

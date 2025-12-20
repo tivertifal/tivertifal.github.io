@@ -57,7 +57,13 @@
         <p>Slutteligt kan det bemærkes, at nogle spil kører hurtigere og bedre via Proton end de gør i Windows, fordi kompatibilitetslaget ikke tilfører systemet særligt meget mere arbejde, og det lille ekstra arbejde mere end opvejes af Linux's hastighed og effektivitet i forhold til Windows.</p>
 
         <h3>Steam</h3>
-        <p>Steam er i sagens natur meget godt understøttet i Linux efterhånden. Man kan installere det som Flatpak, og det gjorde jeg selv engang, men det gav mig en række problemer, og derfor installerer vi det gennem Manjaros officiel repo i stedet. Når det er installeret, fungerer det fuldstændig som på Windows.</p>
+        <p>Steam er i sagens natur meget godt understøttet i Linux efterhånden. Man kan installere det som Flatpak, og det gjorde jeg selv engang, men det gav mig en række problemer, og derfor installerer vi det gennem Manjaros officiel repo i stedet. Når det er installeret, fungerer det fuldstændig som på Windows. Stort set alle spil kører uden videre i Proton; eneste undtagelser er de spil, der bruger kernel-level anticheats. Det gør fx Destiny 2 og alle Riot-spil. Man vælger, hvilken udgave af Proton der skal bruges, i Steam Settings på Compatibility-fanen.
+
+        <img src="compatibility.png" alt="Her vælges udgaven af Proton"/>
+
+        <p>Nogle gange eksisterer der en reel linuxversion af et spil, og den vil blive installeret som standard. Paradoksalt nok kører linxudgaverne ofte dårligere end windowsudgaven via Proton, og nogle gange virker de slet ikke! I de tilfælde kan man tvinge Steam til at downloade windowsudgaven ved at gå ind i Properties for spillet, så "Force the use of a specific Steam Play compatibility tool" til på Compatibility-fanen, og så vælge Proton fra dropdownmenuen.</p>
+
+        <img src="force.png" alt="Her tvinges spillet til at køre windowsudgaven via Proton"/>
 
         <h3>Lutris</h3>
         <p>Steam er til steamspil, og Lutris er til "alt andet". Lutris bruger også Proton, men opdaterer automatisk til nyeste udgave. Lutris kan integreres med alle spiludbydere som GOG, Epic, EA, og sågar også Steam, så man kan tilgå de spil, man ejer, direkte gennem Lutris og installere dem uden videre. Man kan også installere emulatorer til fx Amiga eller Playstation og administrere det i Lutris. Lutris giver derudover mulighed for at håndtere Wine-prefixes og køre <code>exe</code>-filer inde i prefixes for fx at installere DLC og den slags. Det er lidt mindre ligetil end Steam og giver nogle gange lidt hovedpine, men overordnet set fungerer det godt. Nogle gange skal man dog dreje lidt på et par knapper og slå lidt op på nettet for at få det til at virke.</p>
@@ -65,6 +71,49 @@
         <p>Lutris ser sådan her ud:</p>
 
         <img src="lutris.png" alt="Lutris"/>
+
+        <p>Hvis man trykker på det lille tandhjul ved siden af Wine under Runners i menuen til venstre, kan man vælge, hvilken udgave af Proton Lutris skal bruge. Her er det så smart, at et af valgene er "GE-Proton (Latest)", og hvis man vælger det, holder Lutris automatisk Proton opdateret med den nyeste GE-version.</p>
+
+        <img src="lutrisproton.png" alt="Valg af standardudgave af Proton i Lutris"/>
+
+    </section>
+
+    <section>
+
+        <h2>Systemet</h2>
+        <p></p>
+
+        <h3>Kommandolinjen</h3>
+        <p>Nu om dage behøver man ikke bruge kommandolinjen til særligt meget, men det er et område, hvor Linux står enormt stærkt, og der er mange entusiaster, der sværger til at gøre så meget som muligt via tekst. Der er en masse små kommandoer, som rent faktisk er nyttige i det daglige, såsom <code>ls</code>, der viser indholdet af den nuværende mappe, <code>cat</code>, der viser indholdet af en fil, <code>grep</code>, der filtrerer output og kun viser ting, der matcher et søgekriterie. Man kan sætte kommandoer i serie, så outputtet fra en kommando videresendes til den næste kommando; det lyder abstrakt, men det er rigtigt nyttigt, og det gøres ved at sætte en lodret streg mellem kommandoerne. Tag fx den her linje:</p>
+
+        <pre><code><span class="prompt">$ ></span> cat tekstfil.txt | grep -i banjo</code></pre>
+
+        <p>Den betyder "output alt indholdet af tekstfil.txt, men i stedet for at sende det til skærmen, så find alle forekomster af ordet "banjo", og vis mig bare de linjer, hvor det ord forekommer". Ved at skrive <code>-i</code> i grep-kommandoen gøres søgningen case-insensitive, så den også finder Banjo og BANJO.</p>
+
+        <p>Så længe der er internet, er det ikke rigtigt nødvendigt at kunne huske noget som helst om noget som helst, der har med kommandolinjen at gøre. Det er teoretisk set muligt at støde på kommandoer på nettet, der sletter hele mapper eller gør et eller andet andet ondsindet, men det er mere en teoretisk mulighed end noget andet, og jeg er aldrig stødt på den slags i en kontekst, hvor hensigten var at få mig til at gøre noget dumt. Jeg tror, man skal grave meget dybt i søgeresultaterne for at være i fare for noget af den art, men en kommando som <code>rm -rf /</code> støder man nogle gange på som en joke; kommandoen fjerner (<code>rm</code> = remove) alt (<code>/</code> er systemets rod) inklusive undermapper (<code>-r</code> = recursive) uden at spørge om yderligere (<code>-f</code> = force), og det er derfor noget nær det mest destruktive, man kan skrive i terminalen. Her er det dog værd at bemærke, at du er sikret i kraft af at være logget på som normal bruger; du ville ikke have tiladelse på din egen konto til at slette systemmapperne. Alle dine egne mapper og filer ryger dog uden videre.</p>
+
+        <img src="terminal.png" alt="Terminalemulatoren Alacritty"/>
+
+        <h3>Filsystemet</h3>
+        <p>Linux er lavet ud fra en filosofi om, at "alt er en fil". I praksis betyder det bare, at der ikke er en masse abstrakte registre og navne, men at alt er repræsenteret i filsystemet på en eller anden måde. Et linuxsystem har en grundlæggende mappestruktur, der går igen på alle systemer.</p>
+
+        <img src="filesystem.png" alt="Oversigt over mapper i systemets rod"/>
+
+        <p>Det er ikke nødvendigt at huske andet, end at brugerens filer ligger i <code>/home/brugernavn</code>, og at en genvej til den mappe er <code>~</code>. Så en sti som <code>~/Downloads</code> betyder <code>/home/brugernavn/Downloads</code>. Skjulte filer og mapper starter med et punktum. Konfigurationsfiler til brugerens programmer ligger fx som standard i <code>~/.config</code>. Slutteligt kan det nævnes, at kommandoer konventionelt set skrives med <code>$</code> først, hvis man kan køre dem som normal bruger, og med <code>#</code> først, hvis de kræver superbrugerrettigheder. Tegnene modsvarer, hvad der vises i terminalen; når du er logget ind som dig selv, står der <code>$</code> i kommandoprompten; se fx screenshotsene herover.</p>
+
+        <pre><code><span class="prompt">$ ></span> denne kommando kan køres som normal bruger</code></pre>
+        <pre><code><span class="prompt"># ></span> denne kommando kræver superbrugerrettigheder</code></pre>
+
+        <p><b>Ekspertviden:</b> I screenshottet herover med oversigten over filsystemet står der ting som <code>drwxrwxrwx</code> foran hver mappe og fil. Det er en filtypeangivelse efterfulgt af de rettigheder, der er indlejret i filen. Det første bogstav er filtypen, hvor <code>d</code> er directory, <code>l</code> er link, og <code>.</code> er en normal fil. De næste ni bogstaver er rettigheder for filens ejer, ejerens gruppe og alle andre. Hver af de tre har tre potentielle rettigheder: <code>r</code> = read, <code>w</code> = write, <code>x</code> = execute. Så hvis en fil har rettighederne <code>rwxr-xr-x</code>, betyder det, at filens ejer har alle rettigheder, men andre brugere kan kun se den og eksekvere den (dvs. køre den, hvis det er et program, eller gå ind i den, hvis det er en mappe). Det meste af tiden er det ikke vigtigt, men det er værd at vide, da det nogle gange er her, der opstår problemer, hvis en fil har de forkerte rettigheder. Heldigvis kan man let ændre rettigheder med kommandoen <code>chmod</code>.</p>
+
+        <h3></h3>
+        <p></p>
+
+        <h3></h3>
+        <p></p>
+
+        <h3></h3>
+        <p></p>
 
     </section>
 
@@ -78,6 +127,9 @@
 
         <p>Der er en række centrale konfigurationsfiler, der altid er sammensat til din helt præcise systemkonfiguration. Derfor vil du også opleve, at nogle af disse konfigurationsfiler vil blive genskabt fra bunden, når du kører en systemopdatering. Det er med til at sikre, at systemet er helt tight og optimeret.</p>
 
+        <h3>terminal/console/cli</h3>
+        <p>Der er forskellige navne for kommandolinjen i Linux, men i praksis peger de alle sammen bare på det tekstbaserede interface. Også her er der flere muligheder, både i forhold til selve terminalemulatorprogrammet (det program, der viser input og output på skærmen) og din <i>shell</i>, som er det program, der fortolker de ting, du skriver, og sender dem videre til andre programmer. Some standard bruges den shell, der hedder Bash, og de fleste tekstbaserede løsninger og scripts, du finder på nettet, er skrevet i Bash.</p>
+
         <h3>dependency</h3>
         <p>Når du installerer software, kan det enkelte program afhænge af et andet program eller en programudvidelse (et library). Hvis program A kun virker, hvis program B er installeret, så siger man, at program B er en <i>dependency</i> for program A. I dagligdagen vil du støde på det, når du installerer og afinstallerer software. Du vælger at installere ét program, men Pacman/Pamac spørger, om du vil installere 20 programmer. Det er, fordi de 19 af programmerne er dependencies for det program, du prøver at installere. Det er helt normalt. Når du afinstallerer software, kan du vælge at fjerne dependencies også; Pacman/Pamac vil sørge for kun at fjerne de dependencies, der ikke er brugt af andet software, så det er i udgangspunktet en sikker handling.</p>
 
@@ -90,13 +142,13 @@
         <h3>git</h3>
         <p>Git er et versionsstyringssystem. På det offentlige internet bruger langt de fleste mennesker <a href="https://github.com">Github</a>, som ejes af Microsoft, men der er også alternativer som <a href="https://codeberg.org">Codeberg</a>, og nogle større firmaer har sågar et internt gitsystem. Selve git er udviklet af Linus Torvalds, manden bag Linux. I dagligdagen vil du opleve, at en masse open source-programmer og deres dokumentation ligger på Github, og når du bruger Pacman, kan du støde på pakker, der hedder <code>pakkenavn-git</code>; det betyder som regel, at den pakke vil blive installeret, ved at den nyeste version hentes direkte fra Github og bliver compilet på din computer. Ikke så vigtigt; bare noget at være beredt på, hvis en installation pludselig begynder at compile kildekode.</p>
 
-        <h3>desktop environment</h3>
-        <p>Den grafiske brugerflade af styresystemet. Du bruger KDE Plasma, og det er sammen med Gnome de to helt store. Der er dog en række alternativer til alle mulige snævre behov, som Cinnamon, Xfce, COSMIC mv. KDE er det mest robuste, traditionelle og i mine øjne brugervenlige valg.</p>
+        <h3>desktop environment (DE)</h3>
+        <p>Den grafiske brugerflade af styresystemet. Du bruger KDE Plasma, og det er sammen med Gnome de to helt store. Der er dog en række alternativer til alle mulige snævre behov, som Cinnamon, Xfce, COSMIC mv. KDE er det mest robuste, traditionelle og i mine øjne brugervenlige valg. DE'et har ingen indflydelse på, hvilke programmer du kan køre, men styrer systemets udseende og opførsel og installeres med en række grundlæggende programmer. Hvis et program er udviklet af/til KDE, starter navnet som regel med <i>k</i>: Kate, Krita, KWin, Konsole, KCalc osv.</p>
 
-        <h3>window manager og compositor</h3>
-        <p>Desktop environments er afhængige af window manager og compositor for at køre den grafiske brugerflade, og det er naturligvis ikke supervigtigt at forholde sig til. Det er dog rart at kende til to <i>compositing window managers</i>, der hedder X11 og Wayland. Stort set alle grafiske linuxinstallationer bruger enten den ene eller den anden. X11 er den gamle spiller på banen, men i mange år har der været et projekt i gang for at lave et mere moderne og sikkert alternativ: Wayland. Wayland er kommet så langt, at det nu er standard i flere af de store distributioner. Der har historisk set været knas mellem nVidia og Wayland, men de problemer blev mere eller mindre løst sidste år. Du kan dog støde på samtaler, især ældre samtaler, på nettet, hvor de problemer er i fokus, men det burde ikke være relevant længere.</p>
+        <h3>window manager (WM) og compositor</h3>
+        <p>Desktop environments er afhængige af window manager og compositor for at køre den grafiske brugerflade, og det er naturligvis ikke supervigtigt at forholde sig til. Det er dog rart at kende til to <i>compositing window managers</i>, der hedder X11 og Wayland. Stort set alle grafiske linuxinstallationer bruger enten den ene eller den anden. X11 er den gamle spiller på banen, men i mange år har der været et projekt i gang for at lave et mere moderne og sikkert alternativ: Wayland. Wayland er kommet så langt, at det nu er standard i flere af de store distributioner. Der har historisk set været knas mellem nVidia og Wayland, men de problemer blev mere eller mindre løst sidste år, så vi bruger Wayland. Det er godt at vide, hvilken af de to man bruger, når man skal løse problemer.</p>
 
-        <p>Det er muligt at køre en grafisk brugerflade kun med en window manager, og det gør mange af de mere nørdede tekstfanatikere. De er særligt glade for <i>tiling window managers</i>, der automatisk tilpasser vinduers størrelse til at fylde hele skærmen. Et kaninhul til en regnvejrsdag.</p>
+        <p>Det er i øvrigt muligt at køre en grafisk brugerflade kun med en window manager, og det gør mange af de mere nørdede tekstfanatikere. De er særligt glade for <i>tiling window managers</i>, der automatisk tilpasser vinduers størrelse til at fylde hele skærmen. Et kaninhul til en regnvejrsdag.</p>
 
         <h3></h3>
         <p></p>
@@ -106,25 +158,34 @@
     <section>
         <h2>Nyttige kommandoer og fif</h2>
 
-        <p><i>Gamemode</i> er et program, der optimerer systemet til spil midlertidigt, mens spillet rent faktisk kører. Det installerer vi også. For at køre spil med "gamemode" og maks. 60 frames i sekundet, plus et par ekstra optimeringer, tilføjes følgende til launch options i Steam for det enkelte spil:</p>
-        <pre><code>gamemoderun DXVK_FRAME_RATE=60 DXVK_ASYNC=1 __GL_SHADER_DISK_CACHE=1 __GL_SHADER_DISK_CACHE_SKIP_CLEANUP=1 STAGING_SHARED_MEMORY=1 %command%</code></pre>
+        <h3>Gamemode i Steam</h3>
+        <p><i>Gamemode</i> er et program, der optimerer systemet til spil midlertidigt, mens spillet rent faktisk kører. Det installerer vi også. For at køre spil med "gamemode" og maks. 60 frames i sekundet, plus et par ekstra optimeringer, tilføjes følgende til launch options i Steam for det enkelte spil: <code>gamemoderun DXVK_FRAME_RATE=60 DXVK_ASYNC=1 __GL_SHADER_DISK_CACHE=1 __GL_SHADER_DISK_CACHE_SKIP_CLEANUP=1 STAGING_SHARED_MEMORY=1 %command%</code></p>
 
         <img src="launchoptions.png" alt="Launch options i Steam"/>
 
+        <h3>Problemer med "Downloading ..." hele tiden i Steam</h3>
+        <p>Steam kan downloade <i>shaders</i> (oplysninger om, hvordan grafikken behandles) på forhånd, så spil kører mere flydende og skal bruge mindre tid på at kompilere shaders selv. Det er smart i teorien, men i praksis giver det nogle problemer, og de her shader cache-filer kan ende med at fylde sindssygt meget. Jeg har endda været ude for, at Steam gik i selvsving og stort set downloadede shadere hele tiden, fordi der var noget galt med cachens opsætning, så den hele tiden blev ugyldiggjort og gendannet. Jeg har derfor slået shader pre-caching helt fra, og det fungerer fint. Hvis der af den ene eller anden årsag skulle være problemer med processen, kan du slå pre-caching fra i Steam Settings på Compatibility-fanen.</code></p>
+
+        <img src="precache.png" alt="Her slås shader pre-caching fra i Steam"/>
+
+        <h3>Miljøvariabler i Lutris</h3>
+        <p>Som standard vises der et overlay, der viser en besked, når systemet kompilerer shaders, mens man kører spil via Proton i Lutris. Det kan man dog slå fra med en miljøvariabel. Her er de tre miljøvariabler, jeg anbefaler at indtaste i Lutris som standard for alle spil (se afsnittet om Lutris længere oppe). Tryk på Add-knappen, og indtast navnene og værdierne manuelt ved at trykke på de tomme felter i den nye linje, der bliver indsat i listen.</p>
+
+        <img src="dxvk.png" alt="DXVK-indstillinger i Lutris"/>
+
+        <h3>Manuel systemopdatering</h3>
         <p>For at opdatere systemet med de nyeste pakker via kommandolinjen:</p>
-        <pre><code>sudo pacman -Syu</code></pre>
+        <pre><code><span class="prompt">$ ></span> sudo pacman -Syu</code></pre>
 
-        <p></p>
-        <pre><code></code></pre>
-
-        <p></p>
-        <pre><code></code></pre>
     </section>
 
     <section>
 
         <h2>Support</h2>
-        <p>Hvis du har brug for hjælp og vil prøve på egen hånd, er der rigtigt mange ressourcer på nettet skrevet og vedligeholdt af brugere med masser af info og guides. Her er et par af dem:</p>
+        <p>Hvis du har brug for hjælp og vil prøve på egen hånd, er der rigtigt mange ressourcer på nettet skrevet og vedligeholdt af brugere med masser af info og guides. Her er et par måder, du kan få hjælp på:</p>
+
+        <h3>Spørg mig</h3>
+        <p>Trin ét i problemløsningsprocessen er naturligvis bare at spørge mig, hvis jeg er hjemme, og du i øvrigt ikke føler stærkt for at klare ærterne på egen hånd. Jeg har måske løst præcis samme problem før, og uanset hvad kan vi lettere finde løsningen sammen.</p>
 
         <h3>Almene søgemaskiner</h3>
         <p>Det er som regel et godt første skridt at google sit problem, så der kommer links til forskellige forummer og wikier med de mest relevante resultater øverst. Du kan tilføje "manjaro" eller "arch" til søgningen for at få løsninger, der kan anvendes direkte i dit eget system. Vær dog opmærksom på, at der pga. den minimale opsætning af systemet og det brede udvalg af software kan være løsninger, der involverer programmer, du ikke har installeret. I sådan nogle tilfælde kan du overveje, om du vil installere de programmer eller kigge efter en anden løsning.</p>
