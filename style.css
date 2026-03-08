@@ -99,13 +99,13 @@ blockquote {
   position: fixed;
   left: 0;
   top: 0;
-  width: 300px;
+  width: 220px;
   height: 100vh;
   padding: 1rem;
   box-sizing: border-box;
 }
 
 .content {
-  margin-left: 320px;
+  margin-left: 240px;
   max-width: 800px;
 }
