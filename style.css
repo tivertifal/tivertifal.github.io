@@ -28,6 +28,7 @@ body {
     color: var(--text);
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
+    padding: 2rem;
     margin: 0;
 }
 
@@ -97,12 +98,13 @@ blockquote {
   position: fixed;
   left: 0;
   top: 0;
-  width: 220px;
+  width: 300px;
   height: 100vh;
+  padding: 2rem;
   box-sizing: border-box;
 }
 
 .content {
-  margin-left: 240px;
+  margin-left: 320px;
   max-width: 800px;
 }
