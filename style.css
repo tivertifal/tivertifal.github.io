@@ -1,0 +1,21 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+#menu {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 220px;
+  height: 100vh;
+  background: #eee;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.content {
+  margin-left: 240px;
+  padding: 2rem;
+  max-width: 800px;
+}
