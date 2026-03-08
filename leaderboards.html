@@ -12,8 +12,9 @@
 <script src="menu-loader.js"></script>
 
 <div class="content">
-<h1>Leaderboards</h1>
-<p>How to make sure leaderboards can be trusted.</p>
+  <h1>How to make sure leaderboards can be trusted</h1>
+  <p>I'll be making a game that's played offline with the ability to save and resume. Potentially, a player might play for a while, save the game, take an extended break, and come back and finish the run three years later. This puts certain constraints on how I can verify the integrity of a submitted run, because a bad actor would theoretically have infinite time to circumvent my safeguards.</p>
+  <p>One of the things I looked at was how realtime strategy games like Starcraft work. They use something called <i>deterministic lockstep</i>, which is quite ingenious. This method works for multiple clients connected to a single server, but it turns out I can use the same basic idea for my offline, glacial-pace roguelike.</p>
 </div>
 
 </body>
