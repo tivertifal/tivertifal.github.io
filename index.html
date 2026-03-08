@@ -20,8 +20,11 @@
   
   <p>The purpose of these pages is to help me get through the planning stages. By forcing myself to write down my thoughts in a coherent, linear form, I make sure that I have everything sorted into the right boxes and categories, and that I understand everything well enough to describe how it works. My goal is to end up with some design principles that can guide my hand in the execution phase of the project.</p>
 
-  <h2>What kind of game am I making?</h2>
-  <p>Banjo</p>
+  <h2>About the game</h2>
+  <p>There are some extraordinary, modern games in the roguelike genre, like Tales of Maj'Eyal, Path of Achra, Cogmind, Caves of Qud, and Approaching Infinity. I play these games, and it's only natural that I'll draw inspiration from them for my own game. But as is often the case, the core inspiration for wanting to make my own game isn't just that I want to copy something I like, but that I feel I have something novel and potentially really fun to add to the mix.</p>
+  <p>I've always been a fan of leaderboards for single-player games, and wanting leaderboards for my game is going to shape the project both conceptually and in terms of the practical implementation of the mechanics that drive the simulation. Leaderboards only make sense if the data they're based on is credible. I've played many games with leaderboards where the top entries were clearly manipulated in some way. Once that happens, even if it happens only once, the point of the leaderboards evaporates instantly, as does the appeal of competing for a spot on them.</p>
+  <p>With this in mind, I've been thinking about how to have leaderboards for a roguelike like the one I'm planning. I looked at different ways to make sure data being transmitted to the leaderboards (let's call this "the server" and contrast it with "the client" from now on) could be checked and verified and rejected if it was manipulated. Unsurprisingly, it turns out there are quite a lot of attack vectors for any sort of setup where a client sends data to a server.</p>
+  <p>I'll be making a game that's played offline with the ability to save and resume. Potentially, a player might play for a while, save the game, take an extended break, and come back and finish the run three years later. If I wanted to verify the integrity of a score submission from a two-minute speedrun of a level in a precision platformer, I could take advantage of the fact that the time between the run starting and ending is very short. For example</p>
 </div>
 
 </body>
