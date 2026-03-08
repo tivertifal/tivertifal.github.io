@@ -1,6 +1,7 @@
 body {
   margin: 0;
   font-family: sans-serif;
+  background: #FFFDE4;
 }
 
 #menu {
@@ -9,7 +10,6 @@ body {
   top: 0;
   width: 220px;
   height: 100vh;
-  background: #eee;
   padding: 1rem;
   box-sizing: border-box;
 }
